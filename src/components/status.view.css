@@ -1,0 +1,67 @@
+.status-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.status-container__player-score-container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(151, 151, 151);
+}
+
+.player-score {
+  padding: 0 15px 0;
+  text-align: center;
+  color: rgb(72, 72, 72);
+  flex-grow: 1;
+}
+
+.player-score--orange {
+  background-color: rgb(255, 176, 0);
+}
+
+.player-score--green {
+  background-color: rgb(37, 183, 159);
+}
+
+.player-score__score-text {
+  font-weight: bold;
+  font-size: 50px;
+  margin: 30px 0;
+  line-height: 1em;
+}
+
+.player-score__divider {
+  display: block;
+  background-color: rgb(72, 72, 72);
+  height: 1px;
+  border: none;
+  margin: 0;
+}
+
+.player-score__player-name {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 16px;
+}
+
+.ship-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ship-status__ship {
+  width: 50%;
+}
+
+.ship-status__hits {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ship-status__hit {
+  
+}

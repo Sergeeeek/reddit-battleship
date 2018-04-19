@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import { BoardContainer } from './BoardContainer';
+import './app.css';
+import { BoardContainer } from './board.container';
+import { StatusContainer } from './status.container';
 
 class App extends Component {
   render() {
     return (
       <div className="game-container">
         <div className="game-container__status">
+          <StatusContainer />
         </div>
         <div className="game-container__board-container">
           <BoardContainer className="game-container__board" />

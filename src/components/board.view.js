@@ -1,5 +1,5 @@
 import React from 'react';
-import './BoardView.css';
+import './board.view.css';
 
 export const BoardView = ({ board, onCellClick, className }) => {
   return (<div className={`board ${className ? className : ''}`}>

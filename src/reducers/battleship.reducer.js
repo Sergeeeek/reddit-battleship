@@ -1,3 +1,5 @@
+import { SHOOT_ACTION, RESTART_ACTION } from './battleship.actions';
+
 const data = {
   "shipTypes": {
     "carrier": { "size": 5, "count": 1 },
@@ -34,5 +36,18 @@ function initialBoard(shipData) {
 }
 
 export default function battleshipBoard(state = initialBoard(data), action) {
+  switch (action.type) {
+    case SHOOT_ACTION:
+      const newBoard = state.board.map(row => row.slice());
+      newBoard[action.payload.i][action.payload.j].isHit = true;
+      return {
+        ...state,
+        board: newBoard
+      }
+    case RESTART_ACTION:
+      return initialBoard(data);
+    default:
+      return state;
+  }
   return state;
 }

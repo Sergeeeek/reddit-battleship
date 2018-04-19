@@ -23,6 +23,47 @@
   flex-grow: 1;
 }
 
+.game-container__game-over {
+  background: rgb(255, 176, 0);
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container__game-over::before {
+  content: '';
+  padding-top: 100%;
+  float: left;
+  display: block;
+}
+
+.game-container__game-over-text {
+  color: rgb(75, 75, 75);
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 1em;
+  margin: 0;
+}
+
+.game-container__game-over-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-container__restart {
+  background-color: white;
+  font-size: 30px;
+  border: none;
+  line-height: 1em;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: rgb(75, 75, 75);
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .game-container {
     padding: 15px;

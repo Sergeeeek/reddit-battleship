@@ -2,7 +2,7 @@
   "name": "battleship",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sergeeeek.github.io",
+  "homepage": "https://sergeeeek.github.io/reddit-battleship/",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

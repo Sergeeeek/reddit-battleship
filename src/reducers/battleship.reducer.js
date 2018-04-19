@@ -40,6 +40,9 @@ function initialBoard(shipData, playerScore) {
 export default function battleshipBoard(state = initialBoard(data, 0), action) {
   switch (action.type) {
     case SHOOT_ACTION:
+      if (getGameState({ battleship: state }) === GAME_STATE_FINISHED) {
+        return state;
+      }
       const newBoard = state.board.map(row => row.slice());
       newBoard[action.payload.i][action.payload.j].isHit = true;
       const newState = {

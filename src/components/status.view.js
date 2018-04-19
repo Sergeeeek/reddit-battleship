@@ -32,8 +32,15 @@ export const StatusView = ({ status, types, score }) => {
       <PlayerScore first={true} name="player 1" score={score} />
       <PlayerScore first={false} name="player 2" score={0} />
     </div>
-    <div>
-      {typeNames.map(type => <ShipStatus key={type} ship={type} totalHealth={types[type].size} numberOfHits={status[type].hits} />)}
+    <div className="ship-status-list">
+      {typeNames.map(type =>
+        <ShipStatus
+          key={type}
+          ship={type}
+          totalHealth={types[type].size}
+          numberOfHits={status[type].hits}
+        />
+      )}
     </div>
   </div>);
 }

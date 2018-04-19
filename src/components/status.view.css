@@ -141,3 +141,24 @@
     padding: 0 8px 0;
   }
 }
+
+@media (max-width: 600px) {
+  .status-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .status-container__player-score-container {
+    border: none;
+  }
+
+  .player-score__score-text {
+    font-size: 40px;
+    margin: 10px 0;
+  }
+
+  .player-score__player-name {
+    margin: 11px 0;
+    font-size: 16px;
+  }
+}

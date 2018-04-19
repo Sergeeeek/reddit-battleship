@@ -39,3 +39,9 @@
     width: auto;
   }
 }
+
+@media (max-width: 600px) {
+  .game-container {
+    padding: 0;
+  }
+}

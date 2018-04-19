@@ -1,4 +1,5 @@
 import { SHOOT_ACTION, RESTART_ACTION } from './battleship.actions';
+import { getGameState, GAME_STATE_FINISHED } from './battleship.selectors';
 
 const data = {
   "shipTypes": {
@@ -17,7 +18,7 @@ const data = {
   ]
 };
 
-function initialBoard(shipData) {
+function initialBoard(shipData, playerScore) {
   const board = new Array(10)
     .fill(null)
     .map((_, i) => new Array(10)
@@ -32,20 +33,27 @@ function initialBoard(shipData) {
     board,
     layout: shipData.layout,
     shipTypes: shipData.shipTypes,
+    playerScore
   };
 }
 
-export default function battleshipBoard(state = initialBoard(data), action) {
+export default function battleshipBoard(state = initialBoard(data, 0), action) {
   switch (action.type) {
     case SHOOT_ACTION:
       const newBoard = state.board.map(row => row.slice());
       newBoard[action.payload.i][action.payload.j].isHit = true;
-      return {
+      const newState = {
         ...state,
         board: newBoard
+      };
+
+      if (getGameState({ battleship: newState }) === GAME_STATE_FINISHED) {
+        newState.playerScore = (newState.playerScore + 1) % 100;
       }
+
+      return newState;
     case RESTART_ACTION:
-      return initialBoard(data);
+      return initialBoard(data, state.playerScore);
     default:
       return state;
   }

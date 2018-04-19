@@ -7,6 +7,7 @@ export const getLayout = state =>
     {},
     ...state.battleship.layout.map(ship => ({ [ship.ship]: ship.positions }))
   )
+export const getScore = state => state.battleship.playerScore;
 
 export const getShipState = createSelector(
   [getBattleshipBoard, getShipTypes, getLayout],
@@ -28,5 +29,19 @@ export const getShipState = createSelector(
     }
 
     return shipState;
+  }
+)
+
+export const GAME_STATE_PLAYING = 'GAME_PLAYING';
+export const GAME_STATE_FINISHED = 'GAME_FINISHED';
+
+export const getGameState = createSelector(
+  [getShipState, getShipTypes],
+  (shipState, types) => {
+    const typeNames = Object.keys(types);
+
+    return typeNames.some(type => types[type].size !== shipState[type].hits) // if there are alive ships
+      ? GAME_STATE_PLAYING
+      : GAME_STATE_FINISHED;
   }
 )

@@ -49,19 +49,55 @@
 
 .ship-status {
   display: flex;
-  justify-content: space-between;
+  min-height: 80px;
 }
 
-.ship-status__ship {
+.ship-status__element {
   width: 50%;
 }
 
-.ship-status__hits {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-around;
+.ship-status__ship-body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
 }
 
-.ship-status__hit {
-  
+.ship-status__ship-body--carrier {
+  background-image: url('../assets/carrier.png');
+}
+
+.ship-status__ship-body--battleship {
+  background-image: url('../assets/battleship.png');
+}
+
+.ship-status__ship-body--cruiser {
+  background-image: url('../assets/cruiser.png');
+}
+
+.ship-status__ship-body--submarine {
+  background-image: url('../assets/submarine.png');
+}
+
+.ship-status__ship-body--destroyer {
+  background-image: url('../assets/destroyer.png');
+}
+
+.ship-body {
+  display: flex;
+  padding: 5px;
+  margin-right: -5px;
+  align-items: stretch;
+}
+
+.ship-body__health {
+  width: 30px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: url('../assets/Miss small.png') no-repeat center;
+  background-size: auto 50%;
+  margin-right: 5px;
+}
+
+.ship-body__health--hit {
+  background-image: url('../assets/Hit small.png');
 }
